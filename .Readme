@@ -1,0 +1,83 @@
+#service
+act as loand balance and connection between the pods
+consider i have pod for front end, back end and database (three pods)
+so the service has to know the request for which pod
+Service yml file have the selector: label so according to the lable it connnect with pods
+but pod ip required to send the request to pod
+while creating the service simoultaneously it create endpoint
+endpoint will give the all pod ip
+
+#kube-proxy
+it will available in all nodes
+it has two ip one is service ip and endpoints
+if request is sent to service it firs goes to kube-proxy, it will check in table which service has received the request
+kube proxy has to decide to which endpoint ip need to share the load
+it will use round robin algorithm to share the load
+kube-proxy will forward the request to endpoint ip
+#pod
+pod is the smallest deployable unit in kubernets
+pod can have one or more containers inside it
+pod can have shared storage and network
+pod can have specification how to run the container
+pod can have labels and name
+pod can have resource limit and request
+pod can have restart policy like always, on failure, never
+pod can have node selector to run the pod in specific node
+pod can have affinity and anti affinity to run the pod in specific node or not to run the
+pod in specific node
+pod can have toleration to run the pod in specific node which has taint
+pod can have init container to run the container before the main container
+pod can have liveness probe to check the health of the container
+pod can have readiness probe to check the container is ready to accept the request
+pod can have startup probe to check the container is started or not
+pod can have security context to define the security of the pod or container
+pod can have image pull secret to pull the image from private registry
+pod can have resource limit and request to define the resource for the container
+pod can have env to define the environment variable for the container
+pod can have config map to define the configuration for the container
+pod can have secret to define the secret for the container
+pod can have volume to define the storage for the container
+pod can have volume mount to mount the storage for the container
+pod can have host path to mount the host path for the container
+pod can have empty dir to create empty directory for the container
+pod can have downward api to get the pod information for the container
+pod can have projected volume to combine multiple volume for the container
+pod can have CSI volume to use the CSI driver for the container
+pod can have ephemeral volume to create temporary volume for the container
+pod can have resource limit and request to define the resource for the container
+pod can have env to define the environment variable for the container
+pod can have config map to define the configuration for the container
+pod can have secret to define the secret for the container
+pod can have volume to define the storage for the container
+pod can have volume mount to mount the storage for the container
+pod can have host path to mount the host path for the container
+pod can have empty dir to create empty directory for the container
+pod can have downward api to get the pod information for the container
+pod can have projected volume to combine multiple volume for the container
+pod can have CSI volume to use the CSI driver for the container
+pod can have ephemeral volume to create temporary volume for the container
+pod can have resource limit and request to define the resource for the container
+pod can have env to define the environment variable for the container
+pod can have config map to define the configuration for the container
+pod can have secret to define the secret for the container
+pod can have volume to define the storage for the container
+pod can have volume mount to mount the storage for the container
+pod can have host path to mount the host path for the container
+pod can have empty dir to create empty directory for the container
+pod can have downward api to get the pod information for the container
+pod can have projected volume to combine multiple volume for the container
+pod can have CSI volume to use the CSI driver for the container
+pod can have ephemeral volume to create temporary volume for the container
+
+
+#Types of service
+cluster ip service - default service, it will give the internal ip to access the service within the cluster only
+node port service - it will give the port to access the service from outside the cluster, it will forward the request to cluster ip service
+load balancer service - it will create the load balancer in cloud provider to access the service from outside the cluster, it will forward the request to node port service
+external name service - it will map the service to external name, it will not create any service
+#headless service - it will not create the cluster ip, it will create the endpoint with pod ip, it is used for stateful application like database
+cluster ip services
+headless services
+node port services
+load balancer services
+
